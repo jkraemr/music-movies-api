@@ -4,6 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title>Music Movies API</title>
+
+  <style media="screen">
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
 </head>
 
 <body>
@@ -16,25 +24,103 @@
 
   <main>
 
-    <p>The Music Movies API will provide users with access to information about different music movies and a wealth of various related subcategories. Users will be able to sign up, update their personal information, and create a list of their
-      favorite music movies.</p>
+    <p>REST API for an application called <span style="font-style: italic;">My Music Movies</span> that interacts with a database storing data about movies and videos related to music. The Music Movies API will provide users with access to information about different music movies and a wealth of various related subcategories. Users will be able to sign up, update their personal information, and create a list of their favorite music movies.</p>
 
     <h2>Essential Features:</h2>
 
-    <ul>
-      <li>REST API for an application called <span style="font-style: italic;">My Music Movies</span> that interacts with a database storing data about moving image content related to music</li>
-      <li>Return a list of ALL movies to the user</li>
-      <li>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</li>
-      <li>Return data about a genre (description) by name/title (e.g., “Documentary”)</li>
-      <li>Return data about a artist etc. (bio, birth year, death year) by name</li>
-      <li>Allow new users to register</li>
-      <li>Allow users to update their user info (username, password, email, date of birth)</li>
-      <li>Allow users to add a movie to their list of favorites</li>
-      <li>Allow users to remove a movie from their list of favorites</li>
-      <li>Allow existing users to deregister</li>
-    </ul>
+    <p></p>
+
+
+    <table>
+
+      <tr>
+        <th>Business Logic</th>
+        <th>URL[Query Parameters]</th>
+        <th>HTTP Method</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+
+      <tr>
+        <td>Return a list of ALL movies</td>
+        <td><a href="http://localhost:8080/movies/">/movies</a> </td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about all movies</td>
+      </tr>
+
+      <tr>
+        <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title</td>
+        <td><a href="http://localhost:8080/movies/Pulse">/movies/[Title]</a></td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about a single movie, containing an ID, artist, title, yt_url, description, genre, director, image URL, featured. Example:<br>{<br>id: 1,<br>artist: 'Pink Floyd',<br>title: 'Pulse',<br>description: 'Lorem
+          description',<br>genre: 'ProgRock',<br>director: 'David Mallet',<br>image_url: null,<br>yt_url: 'https://www.youtube.com/watch?v=HriYRoxWo1I',<br>featured: true<br>}</td>
+      </tr>
+
+      <tr style="background-color:none;">
+        <td>Return data about a genre (description) by name/title (e.g., “MelodicTechno”)</td>
+        <td><a href="http://localhost:8080/movies/genres/MelodicTechno">/movies/genres/[Genre Name]</a></td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about all movies tagged with the genre "Melodic Techno"</td>
+      </tr>
+
+      <tr>
+        <td>Return data about a director (bio, birth year, death year) by name</td>
+        <td><a href="http://localhost:8080/movies/directors/Adrian%20Maben">/movies/directors/[Director Name]</a></td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about a director. Example:<br>{<br>"name": "Adrian Maben",<br>"bio": 'Adrian Maben is a director and writer, known for Pink Floyd at Pompeii (1972)',<br>"birthyear": 1942,<br>"deathyear": null<br>}<br></td>
+      </tr>
+
+      <tr>
+        <td>Allow new users to register</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>A JSON object holding data about the user to add, structured like:<br>{<br>"name": "Hans-Peter Mustermann",<br>"favoriteMovies": []<br>}<br></td>
+        <td>A JSON object holding data about the user that was added, including an id:<br>{<br>"id": "f133978c-21f9-4196-b881-2213517adb43",<br>"name": "Hans-Peter Mustermann",<br>"favoriteMovies": []<br>}<br></td>
+      </tr>
+
+      <tr>
+        <td>Allow users to update their user info (username)</td>
+        <td>/users/[ID]</td>
+        <td style="background-color:yellow;">PATCH</td>
+        <td style="background-color:yellow;">A JSON object holding data about the updated user info:<br>{<br>
+          "name": "HP Mustermann"<br>
+          }<br></td>
+        <td style="background-color:yellow;">A JSON object holding a complete data set about the user that was updated, including the updated username:<br>{<br>"id": "f133978c-21f9-4196-b881-2213517adb43",<br>"name": "HP Mustermann",<br>"favoriteMovies": []<br>}<br></td>
+      </tr>
+
+      <tr>
+        <td>Allow users to add a movie to their list of favorites (showing only a text that a movie has been added)</td>
+        <td>/users/[ID]/[NewMovieTitle]</td>
+        <td>POST</td>
+        <td>None</td>
+        <td>A text message indicating whether the movie has been successfully added</td>
+      </tr>
+
+      <tr>
+        <td>Allow users to remove a movie from their list of favorites (showing only a text that a movie has been removed)</td>
+        <td>/users/[ID]/[MovieTitle]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message indicating whether the movie has been successfully removed</td>
+      </tr>
+
+      <tr>
+        <td>Allow existing users to deregister (showing only a text that a user email has been removed)</td>
+        <td>/users/[ID]/</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message indicating whether the user has been successfully deleted</td>
+      </tr>
+
+    </table>
 
   </main>
+
+  <br>
 
   <footer>
     <a href="./">Go Back</a>

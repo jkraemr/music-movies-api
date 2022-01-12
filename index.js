@@ -1,84 +1,346 @@
-// Import Express module and Morgan middleware library locally
 const express = require('express'),
-  morgan = require('morgan');
-// Define instance of Express that encapsulates Express’s functionality to configure the web server. Will be used to route  HTTP requests and responses
-const app = express();
+  app = express(),
+  // morgan = require('morgan'),
+  uuid = require('uuid'),
+  bodyParser = require('body-parser');
 
-// Pass Morgan into app.use() function to log all requests to the terminal
-app.use(morgan('combined'));
-
-// Put user authentication here at a later stage?
-
-// Create function that automatically routes all requests for static files to their corresponding files within a certain folder on the server (in this case, the “public” folder)
 app.use(express.static('public'));
+// app.use(morgan('combined'));
+app.use(bodyParser.json());
 
-// Define JSON object containing data about jkraemr's current top ten music movies
-let myTopTenMusicMovies = [{
+let movies = [{
+  id: 01,
   artist: 'Pink Floyd',
   title: 'Pulse',
-  url: 'https://www.youtube.com/watch?v=HriYRoxWo1I'
+  descr: 'Lorem description',
+  genre: {
+    name: 'ProgRock',
+    description: 'Genre Description goes here.'
+  },
+  director: {
+    name: 'David Mallet',
+    bio: 'Lorem bio.',
+    birthyear: 1945,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=HriYRoxWo1I',
+  featured: true
 }, {
-  artist: 'Pink Floyd',
-  title: 'Live at Pompeji',
-  url: 'https://www.youtube.com/watch?v=fhDfmUnN1vY'
-}, {
+  id: 02,
   artist: 'Yello featuring Fifi Rong',
   title: 'Kiss the Cloud @Berlin @Kraftwerk 28-10-2016',
-  url: 'https://www.youtube.com/watch?v=Xv1cztJnOwk'
+  descr: 'Lorem description',
+  genre: {
+    name: 'ElectroPop',
+    description: 'Genre Description goes here.'
+  },
+  director: {
+    name: null,
+    bio: null,
+    birthyear: null,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=Xv1cztJnOwk',
+  featured: false
 }, {
+  id: 03,
   artist: 'Gardenstate',
-  title: 'INSPIRATIONS (Live from Fagradalsfjall Volcano, Iceland)',
-  url: 'https://www.youtube.com/watch?v=VIgxb5Dbnmg'
+  title: 'INSPIRATIONS',
+  descr: 'Lorem description',
+  genre: {
+    name: 'MelodicTechno',
+    description: 'Straight beats with lots of melodies.'
+  },
+  director: {
+    name: null,
+    bio: null,
+    birthyear: null,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=VIgxb5Dbnmg',
+  featured: true
 }, {
+  id: 04,
   artist: 'Franky Wah',
   title: 'Anjunadeep Open Air: London at The Drumsheds (Official 4K Set)',
-  url: 'https://www.youtube.com/watch?v=J9LR2TQe9tg'
+  descr: 'Lorem description',
+  genre: {
+    name: 'TechHouse',
+    description: 'Genre Description goes here.'
+  },
+  director: {
+    name: null,
+    bio: null,
+    birthyear: null,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=J9LR2TQe9tg',
+  featured: false
 }, {
+  id: 05,
   artist: 'Nastia',
   title: 'HOER Berlin September 28 2021',
-  url: 'https://www.youtube.com/watch?v=vMmnm636T7s'
+  descr: 'Lorem description',
+  genre: {
+    name: 'Techno',
+    description: 'Genre Description goes here.'
+  },
+  director: {
+    name: null,
+    bio: null,
+    birthyear: null,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=vMmnm636T7s',
+  featured: true
 }, {
+  id: 06,
   artist: 'Above & Beyond',
-  title: 'Above & Beyond: Group Therapy 450 Deep Warm Up Set, London (Full 4K Live Set)',
-  url: 'https://www.youtube.com/watch?v=IrzO9GqS8BY'
+  title: 'Deep Warm Up Set, London',
+  descr: 'Lorem description',
+  ggenre: {
+    name: 'Melodic Techno',
+    description: 'Straight beats with lots of melodies.'
+  },
+  director: {
+    name: null,
+    bio: null,
+    birthyear: null,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=IrzO9GqS8BY',
+  featured: false
 }, {
+  id: 07,
+  artist: 'Pink Floyd',
+  title: 'Live at Pompeji',
+  descr: 'Lorem description',
+  genre: {
+    name: 'ProgRock',
+    description: 'Genre Description goes here.'
+  },
+  director: {
+    name: 'Adrian Maben',
+    bio: 'Adrian Maben is a director and writer, known for Pink Floyd at Pompeii (1972)',
+    birthyear: 1942,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=fhDfmUnN1vY',
+  featured: true
+}, {
+  id: 08,
   artist: 'Marsh',
   title: 'DJ Set (Live from Natural Bridge State Park, Kentucky)',
-  url: 'https://www.youtube.com/watch?v=1TLJiuHp88s'
+  descr: 'Lorem description',
+  genre: {
+    name: 'Melodic Techno',
+    description: 'Genre Description goes here.'
+  },
+  director: {
+    name: null,
+    bio: null,
+    birthyear: null,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=1TLJiuHp88s',
+  featured: false
 }, {
+  id: 09,
   artist: 'Marsh & Tony McGuinness',
   title: 'Anjunadeep Open Air: London at The Drumsheds (Official 4K Set)',
-  url: 'https://www.youtube.com/watch?v=KXhp4NKVYa0'
+  descr: 'Lorem description',
+  genre: {
+    name: 'Tech House',
+    description: 'Genre Description goes here.'
+  },
+  director: {
+    name: null,
+    bio: null,
+    birthyear: null,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=KXhp4NKVYa0',
+  featured: false
 }, {
-  artist: 'Franky Wah',
-  title: 'Live From Ibiza | Ministry of Sound',
-  url: 'https://www.youtube.com/watch?v=CTMoaotVtZw'
+  id: 10,
+  artist: 'Steven Wilson',
+  title: 'Home Invasion /Regret #9',
+  descr: 'Lorem description',
+  genre: {
+    name: 'ProgRock',
+    description: 'Genre Description goes here.'
+  },
+  director: {
+    name: null,
+    bio: null,
+    birthyear: null,
+    deathyear: null
+  },
+  image_url: null,
+  yt_url: 'https://www.youtube.com/watch?v=-tajHRP9Cm8',
+  featured: false
 }];
 
-// GET requests / App routing
+let users = [{
+    id: 1,
+    name: 'Helga Musterfrau',
+    favoriteMovies: []
+  },
+  {
+    id: 2,
+    name: 'Hans-Peter Mustermann',
+    favoriteMovies: ["FavMov"]
+  }
+]
 
-// Create Express GET route located at the endpoint "/movies" that returns a JSON object containing data about jkraemr's current top ten music movies
+// READ
+// Return a list of ALL movies
 app.get('/movies', (req, res) => {
-  res.json(myTopTenMusicMovies);
+  res.status(200).json(movies);
 });
 
-// Create Express GET route located at the endpoint “/” that returns a default textual response
-app.get('/', (req, res) => {
-  res.send('<h1>Music Movie API</h1><a href="./documentation.html">View documentation</a><br><br><a href="./movies">View a list of jkraemr\'s current top ten music movies (JSON)</a><br><br><a href="https://github.com/jkraemr/music-movies-api" target="_blank">Visit GitHub repository (jkraemr/music-movies-api).</a>')
+// READ
+// Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title
+app.get('/movies/:title', (req, res) => {
+  const {
+    title
+  } = req.params; // Object destructuring
+  const movie = movies.find(movie => movie.title === title);
+
+  if (movie) {
+    res.status(200).json(movie)
+  } else {
+    res.status(400).send(`No movie with the title \"${title}\" found`)
+  }
 });
 
-// Create Express GET route located at not further defined endpoints returning a default textual response
-app.get('*', (req, res) => {
-  res.send('<p>Nothing here yet.</p><a href="./">Go Back</a>');
+// READ
+// Return data about a genre (description) by name/title (e.g., “MelodicTechno”)
+app.get('/movies/genres/:genreName', (req, res) => {
+  const {
+    genreName
+  } = req.params; // Object destructuring
+  const genre = movies.find(movie => movie.genre.name === genreName).genre;
+
+  if (genre) {
+    res.status(200).json(genre)
+  } else {
+    res.status(400).send('error')
+  }
+  // not working  why ?
 });
 
-// Create error-handling middleware function that will log all application-level errors to the terminal.
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Oh No! There is an application-level error!');
+// READ
+// Return data about a director (bio, birth year, death year) by name
+app.get('/movies/directors/:directorName', (req, res) => {
+  const {
+    directorName
+  } = req.params; // Object destructuring
+  const director = movies.find(movie => movie.director.name === directorName).director;
+
+  if (director) {
+    res.status(200).json(director)
+  } else {
+    res.status(400).send('No such director')
+  }
+  // not working  why ?
 });
 
-// Listen for requests
+// CREATE
+// Allow new users to register
+// Postman JSON dataset for testing: {"name":"Hans-Peter Mustermann","favoriteMovies":[]}
+app.post('/users', (req, res) => {
+  const newUser = req.body; // = body-parser middleware
+  if (!newUser.name) {
+    res.status(406).send('user name required')
+  } else {
+    newUser.id = uuid.v4();
+    users.push(newUser);
+    res.status(201).json(newUser)
+  }
+});
+
+// UPDATE !
+// Allow users to update their user info (username)
+// Postman JSON dataset for testing: {"name":"HP Mustermann"}
+app.patch('/users/:id', (req, res) => {
+  const {
+    id
+  } = req.params; // Object destructuring
+  const updatedUser = req.body;
+
+  let user = users.find(user => user.id == id); // 2 equal sings are used instead of 3 as both are numbers?
+  if (user) {
+    user.name = updatedUser.name;
+    res.status(200).json(user);
+  } else {
+    res.status(400).send('user not found')
+  }
+});
+
+// CREATE
+// Allow users to add a movie to their list of favorites (showing only a text that a movie has been added)
+app.post('/users/:id/:newMovieTitle', (req, res) => {
+  const {
+    id,
+    newMovieTitle
+  } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    user.favoriteMovies.push(newMovieTitle);
+    res.status(200).send(`${newMovieTitle} has been successfully added to ${id}\'s list of favorites`);
+  } else {
+    res.status(400).send('no such user found')
+  }
+});
+
+// DELETE
+// Allow users to remove a movie from their list of favorites (showing only a text that a movie has been removed)
+app.delete('/users/:id/:movieTitle', (req, res) => {
+  const {
+    id,
+    movieTitle
+  } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    user.favoriteMovies = user.favoriteMovies.filter(title => title != movieTitle);
+    res.status(200).send(`${movieTitle} has been successfully removed from ${id}\'s list of favorites`);
+  } else {
+    res.status(400).send('no such user found')
+  }
+});
+
+// DELETE
+// Allow existing users to deregister (showing only a text that a user email has been removed)
+app.delete('/users/:id', (req, res) => {
+  const {
+    id
+  } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    users = users.filter(user => user.id != id);
+    // res.json(users) // to check whether it works
+    res.status(200).send(`User with id ${id} has been successfully deleted.`);
+  } else {
+    res.status(400).send('no such user found')
+  }
+});
+
 app.listen(8080, () => {
   console.log('jkraemr\'s music-movie-app is listening on port 8080.');
 });
