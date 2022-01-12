@@ -34,6 +34,7 @@
     <table>
 
       <tr>
+        <th></th>
         <th>Business Logic</th>
         <th>URL[Query Parameters]</th>
         <th>HTTP Method</th>
@@ -42,6 +43,7 @@
       </tr>
 
       <tr>
+        <td>1</td>
         <td>Return a list of ALL movies</td>
         <td><a href="http://localhost:8080/movies/">/movies</a> </td>
         <td>GET</td>
@@ -50,6 +52,7 @@
       </tr>
 
       <tr>
+        <td>2</td>
         <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title</td>
         <td><a href="http://localhost:8080/movies/Pulse">/movies/[Title]</a></td>
         <td>GET</td>
@@ -59,14 +62,16 @@
       </tr>
 
       <tr style="background-color:none;">
+        <td>3</td>
         <td>Return data about a genre (description) by name/title (e.g., “MelodicTechno”)</td>
         <td><a href="http://localhost:8080/movies/genres/MelodicTechno">/movies/genres/[Genre Name]</a></td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about all movies tagged with the genre "Melodic Techno"</td>
+        <td>A JSON object holding data about a specific genre. Example:<br>{<br>"name": "MelodicTechno",<br>"description": "Straight beats with lots of melodies."<br>}<br></td>
       </tr>
 
       <tr>
+        <td>4</td>
         <td>Return data about a director (bio, birth year, death year) by name</td>
         <td><a href="http://localhost:8080/movies/directors/Adrian%20Maben">/movies/directors/[Director Name]</a></td>
         <td>GET</td>
@@ -75,14 +80,16 @@
       </tr>
 
       <tr>
+        <td>5</td>
         <td>Allow new users to register</td>
         <td>/users</td>
         <td>POST</td>
         <td>A JSON object holding data about the user to add, structured like:<br>{<br>"name": "Hans-Peter Mustermann",<br>"favoriteMovies": []<br>}<br></td>
-        <td>A JSON object holding data about the user that was added, including an id:<br>{<br>"id": "f133978c-21f9-4196-b881-2213517adb43",<br>"name": "Hans-Peter Mustermann",<br>"favoriteMovies": []<br>}<br></td>
+        <td>A JSON object holding data about the user that was added, including an id:<br>{<br>"name": "Hans-Peter Mustermann",<br>"favoriteMovies": []<br>"id": "f133978c-21f9-4196-b881-2213517adb43"<br>}<br></td>
       </tr>
 
       <tr>
+        <td>6</td>
         <td>Allow users to update their user info (username)</td>
         <td>/users/[ID]</td>
         <td style="background-color:yellow;">PATCH</td>
@@ -93,6 +100,7 @@
       </tr>
 
       <tr>
+        <td>7</td>
         <td>Allow users to add a movie to their list of favorites (showing only a text that a movie has been added)</td>
         <td>/users/[ID]/[NewMovieTitle]</td>
         <td>POST</td>
@@ -101,6 +109,7 @@
       </tr>
 
       <tr>
+        <td>8</td>
         <td>Allow users to remove a movie from their list of favorites (showing only a text that a movie has been removed)</td>
         <td>/users/[ID]/[MovieTitle]</td>
         <td>DELETE</td>
@@ -109,6 +118,7 @@
       </tr>
 
       <tr>
+        <td>9</td>
         <td>Allow existing users to deregister (showing only a text that a user email has been removed)</td>
         <td>/users/[ID]/</td>
         <td>DELETE</td>
