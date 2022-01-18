@@ -24,7 +24,8 @@
 
   <main>
 
-    <p>REST API for an application called <span style="font-style: italic;">My Music Movies</span> that interacts with a database storing data about movies and videos related to music. The Music Movies API will provide users with access to information about different music movies and a wealth of various related subcategories. Users will be able to sign up, update their personal information, and create a list of their favorite music movies.</p>
+    <p>REST API for an application called <span style="font-style: italic;">My Music Movies</span> that interacts with a database storing data about movies and videos related to music. The Music Movies API will provide users with access to
+      information about different music movies and a wealth of various related subcategories. Users will be able to sign up, update their personal information, and create a list of their favorite music movies.</p>
 
     <h2>Essential Features:</h2>
 
@@ -44,7 +45,7 @@
 
       <tr>
         <td>1</td>
-        <td>Return a list of ALL movies</td>
+        <td>Return a list of all movies</td>
         <td><a href="http://localhost:8080/movies/">/movies</a> </td>
         <td>GET</td>
         <td>None</td>
@@ -54,29 +55,45 @@
       <tr>
         <td>2</td>
         <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title</td>
-        <td><a href="http://localhost:8080/movies/Pulse">/movies/[Title]</a></td>
+        <td><a href="http://localhost:8080/movies/Control">/movies/[Title]</a></td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a single movie, containing an ID, artist, title, yt_url, description, genre, director, image URL, featured. Example:<br>{<br>id: 1,<br>artist: 'Pink Floyd',<br>title: 'Pulse',<br>description: 'Lorem
-          description',<br>genre: 'ProgRock',<br>director: 'David Mallet',<br>image_url: null,<br>yt_url: 'https://www.youtube.com/watch?v=HriYRoxWo1I',<br>featured: true<br>}</td>
+        <td>A JSON object holding data about a single movie, containing an ID, title, description, image URL, featured (boolean), genre (name, description), director (name, bio).<br>Example:<br>{<blockquote cite="#">"Genre": {
+            <blockquote cite="#">"Name":"Biography",<br>"Description": "A biographical film, or biopic, is a film that dramatizes the life of a non-fictional or historically-based person or people."</blockquote>},<br>"Director": {<blockquote
+              cite="#">"Name": "Anton
+              Corbijn",<br>"Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van Willenswaard. Anton Corbijn is a Dutch photographer, music video director, and film director. He is the creative director behind the
+              visual
+              output of Depeche Mode and U2, having handled the principal promotion and sleeve photography for both bands over three decades.",<br>"Birth": "1955"</blockquote>},<br>
+
+            "Actors": [],<br>"_id": "61e34033816003b43cf7b40a",<br>"Title":
+            "Control",<br>"Description": "Control is a 2007 British biographical film about the life of Ian Curtis, singer of the late-1970s English post-punk band Joy Division. It is the first feature film directed by Anton Corbijn, who had worked
+            with Joy Division as a photographer.",<br>"ImagePath": "control.png",<br>"Featured": false
+          </blockquote>}
+        </td>
       </tr>
 
       <tr style="background-color:none;">
         <td>3</td>
-        <td>Return data about a genre (description) by name/title (e.g., “MelodicTechno”)</td>
-        <td><a href="http://localhost:8080/movies/genres/MelodicTechno">/movies/genres/[Genre Name]</a></td>
+        <td>Return data about a genre (description) by name/title (e.g., “Comedy”)</td>
+        <td><a href="http://localhost:8080/movies/genres/Comedy">/movies/genres/[Genre Name]</a></td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a specific genre. Example:<br>{<br>"name": "MelodicTechno",<br>"description": "Straight beats with lots of melodies."<br>}<br></td>
+        <td>A JSON object holding data about a specific genre.<br>Example:<br>{<blockquote cite="#">"Name": "Comedy",<br>"Description": "Comedy films are funny and entertaining. The films in this genre center around a comedic premise—usually putting
+            someone in a challenging, amusing, or humorous situation they’re not prepared to handle. Good comedy movies are less about making constant jokes, and more about presenting a universally relatable, real-life story with complex characters
+            who learn an important lesson.(Masterclass.com)"</blockquote>}<br></td>
       </tr>
 
       <tr>
         <td>4</td>
         <td>Return data about a director (bio, birth year, death year) by name</td>
-        <td><a href="http://localhost:8080/movies/directors/Adrian%20Maben">/movies/directors/[Director Name]</a></td>
+        <td><a href="http://localhost:8080/movies/directors/Anton%20Corbijn">/movies/directors/[Director Name]</a></td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a director. Example:<br>{<br>"name": "Adrian Maben",<br>"bio": 'Adrian Maben is a director and writer, known for Pink Floyd at Pompeii (1972)',<br>"birthyear": 1942,<br>"deathyear": null<br>}<br></td>
+        <td>A JSON object holding data about a director.<br>Example:<br>{<blockquote cite="#">"Name": "Anton Corbijn",<br>
+            "Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van Willenswaard. Anton Corbijn is a Dutch photographer, music video director, and film director. He is the creative director behind the visual output of
+            Depeche Mode and U2, having handled the principal promotion and sleeve photography for both bands over three decades.",<br>
+            "Birth": "1955"
+          </blockquote>}<br></td>
       </tr>
 
       <tr>
@@ -84,43 +101,52 @@
         <td>Allow new users to register</td>
         <td>/users</td>
         <td>POST</td>
-        <td>A JSON object holding data about the user to add, structured like:<br>{<br>"name": "Hans-Peter Mustermann",<br>"favoriteMovies": []<br>}<br></td>
-        <td>A JSON object holding data about the user that was added, including an id:<br>{<br>"name": "Hans-Peter Mustermann",<br>"favoriteMovies": []<br>"id": "f133978c-21f9-4196-b881-2213517adb43"<br>}<br></td>
+        <td>A JSON object holding data about the user to add, structured like:<br>{<blockquote cite="#">"Username" : "justincase",<br>"Password" : "justincase-pw123",<br>"Email" : "justin@case.com"</blockquote>}</td>
+        <td>A JSON object holding data about a successfully created user.<br>Example:<br>{<blockquote cite="#">"Username": "justincase",<br>"Password": "justincase-pw123",<br>"Email": "justin@case.com",<br>"FavoriteMovies": [],<br>"_id":
+            "61e708dd5279a4481cb3578e",<br>"__v": 0</blockquote>}</td>
       </tr>
 
       <tr>
         <td>6</td>
         <td>Allow users to update their user info (username)</td>
-        <td>/users/[ID]</td>
-        <td style="background-color:yellow;">PATCH</td>
-        <td style="background-color:yellow;">A JSON object holding data about the updated user info:<br>{<br>
-          "name": "HP Mustermann"<br>
-          }<br></td>
-        <td style="background-color:yellow;">A JSON object holding a complete data set about the user that was updated, including the updated username:<br>{<br>"id": "f133978c-21f9-4196-b881-2213517adb43",<br>"name": "HP Mustermann",<br>"favoriteMovies": []<br>}<br></td>
+        <td>/users/[Username]</td>
+        <td>PATCH/PUT</td>
+        <td>A JSON object holding data about the user info to update:<br>{<blockquote cite="#">"Username" : "jimpandzko",<br>"Password" : "jp-pw-123",<br>"Email" : "jim@pandzko.de",<br>"Birthday" : "1986-01-22"</blockquote>}</td>
+        <td>A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id": "61e42bc6816003b43cf7b413",<br>
+            "Username": "jimpandzko",<br>
+            "Password": "jp-pw-123",<br>
+            "Email": "jim@pandzko.de",<br>
+            "Birthday": "1986-01-22T00:00:00.000Z",<br>
+            "FavoriteMovies": [<blockquote cite="#">"61e341f9816003b43cf7b40b",
+              "61e3435a816003b43cf7b40c"</blockquote>
+            ]<br></blockquote>
+          }</td>
       </tr>
 
       <tr>
         <td>7</td>
-        <td>Allow users to add a movie to their list of favorites (showing only a text that a movie has been added)</td>
-        <td>/users/[ID]/[NewMovieTitle]</td>
+        <td>Allow users to add a movie to their list of favorites</td>
+        <td>/users/[Username]/movies/[MovieID]</td>
         <td>POST</td>
         <td>None</td>
-        <td>A text message indicating whether the movie has been successfully added</td>
+        <td>A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id": "61e6da92331a989a513439d9",<br>"Username": "hanspeter",<br>"Password": "hp-pw-122",<br>"Email": "hans@peter.de",<br>"FavoriteMovies": [<blockquote cite="#">
+              "61e354f9816003b43cf7b411",<br>"61e34ac3816003b43cf7b410"</blockquote>],<br>"__v": 0,<br>"Birthday": "1986-01-22T00:00:00.000Z"</blockquote>}</td>
       </tr>
 
       <tr>
         <td>8</td>
-        <td>Allow users to remove a movie from their list of favorites (showing only a text that a movie has been removed)</td>
-        <td>/users/[ID]/[MovieTitle]</td>
+        <td>Allow users to remove a movie from their list of favorites</td>
+        <td>/users/[Username]/movies/[MovieID]</td>
         <td>DELETE</td>
         <td>None</td>
-        <td>A text message indicating whether the movie has been successfully removed</td>
+        <td>A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id": "61e6da92331a989a513439d9",<br>"Username": "hanspeter",<br>"Password": "hp-pw-122",<br>"Email": "hans@peter.de",<br>"FavoriteMovies": [<blockquote cite="#">
+              "61e354f9816003b43cf7b411"</blockquote>],<br>"__v": 0,<br>"Birthday": "1986-01-22T00:00:00.000Z"</blockquote>}</td>
       </tr>
 
       <tr>
         <td>9</td>
         <td>Allow existing users to deregister (showing only a text that a user email has been removed)</td>
-        <td>/users/[ID]/</td>
+        <td>/users/[Username]/</td>
         <td>DELETE</td>
         <td>None</td>
         <td>A text message indicating whether the user has been successfully deleted</td>
