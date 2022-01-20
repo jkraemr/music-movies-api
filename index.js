@@ -308,6 +308,11 @@ app.delete('/users/:Username', passport.authenticate('jwt', {
     });
 });
 
-app.listen(8080, () => {
-  console.log('jkraemr\'s music-movie-app is listening on port 8080.');
+// app.listen(8080, () => {
+//   console.log('jkraemr\'s music-movie-app is listening on port 8080.');
+// });
+
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0',() => {
+ console.log('jkraemr\'s music-movie-app is listening on Port ' + port);
 });
