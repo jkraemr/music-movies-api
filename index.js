@@ -12,10 +12,16 @@ const express = require('express'),
   Movies = Models.Movie,
   Users = Models.User;
 
-mongoose.connect('mongodb://localhost:27017/myMusicMoviesDB', {
+// Add Environment Variable (Config Var) to connect Heroku application to MongoDB Atlas database
+mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
+// mongoose.connect('mongodb://localhost:27017/myMusicMoviesDB', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
 
 app.use(express.static('public'));
 // app.use(morgan('combined'));
