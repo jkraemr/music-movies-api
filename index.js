@@ -55,14 +55,6 @@ const passport = require('passport');
 require('./passport');
 
 
-// INDEX
-
-app.get('/', (req, res) => {
-  // return the documentation.html page
-  res.sendFile('public/documentation.html', { root: __dirname});
-});
-
-
 // MOVIES
 
 // Return a list of all movies / READ
@@ -320,6 +312,17 @@ app.delete('/users/:Username', passport.authenticate('jwt', {
       console.error(err);
       res.status(500).send('Error: ' + err);
     });
+});
+
+
+// MISC
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html', { root: __dirname});
+});
+
+app.get('/documentation', (req, res) => {
+  res.sendFile('public/documentation.html', { root: __dirname});
 });
 
 // app.listen(8080, () => {
