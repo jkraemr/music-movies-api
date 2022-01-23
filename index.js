@@ -55,6 +55,14 @@ const passport = require('passport');
 require('./passport');
 
 
+// INDEX
+
+app.get('/', (req, res) => {
+  // return the documentation.html page
+  res.sendFile('public/documentation.html', { root: __dirname});
+});
+
+
 // MOVIES
 
 // Return a list of all movies / READ
