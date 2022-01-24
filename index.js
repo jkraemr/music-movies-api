@@ -1,6 +1,6 @@
 const express = require('express'),
   app = express(),
-  // morgan = require('morgan'),
+  morgan = require('morgan'),
   {
     check,
     validationResult
@@ -24,7 +24,7 @@ mongoose.connect(process.env.CONNECTION_URI, {
 // });
 
 app.use(express.static('public'));
-// app.use(morgan('combined'));
+app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
