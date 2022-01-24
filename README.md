@@ -17,8 +17,8 @@ The **Music Movies API** consists of a RESTful API and non-relational database b
 * Allow existing users to deregister
 
 ## Who is the Music Movies API for?
-* Frontend developers who will work on the client-side component of the **My Music Movies** web application using REACT.
-* Movie enthusiasts who enjoy gaining further insights into a variety different music movies.
+* Frontend developers who will work on the client-side component of the **My Music Movies** web application using REACT
+* Movie enthusiasts who enjoy gaining further insights into a variety different music movies
 
 ## Built with
 The **My Music Movies** web application is built using the MERN stack:
@@ -36,8 +36,8 @@ The **My Music Movies** web application is built using the MERN stack:
 ### Security Specifications
 Implemented middleware/libraries/strategies to meet data security regulations:
 * **Passport** authentication middleware for Node.js (local, jwt)
-* **Node.bcrypt.js** library for password hashing to ensure a secure authentication process for login and registration.
-* **Express.js validator** middleware for server-side input data validation for all data-receiving endpoints.
+* **Node.bcrypt.js** library for password hashing to ensure a secure authentication process for login and registration
+* **Express.js validator** middleware for server-side input data validation for all data-receiving endpoints
 * **CORS** (Cross-Origin Resource Sharing) to extend HTTP requests (currently allowing requests from all origins)
 * **Environment / Config variables** to hide the online database's connection URI
 
