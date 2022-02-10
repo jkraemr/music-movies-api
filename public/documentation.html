@@ -18,15 +18,23 @@
 
   <header>
 
-    <h1>jkraemr&#39;s Music Movie API</h1>
+    <h1>jkraemr&#39;s Music Movies API</h1>
 
   </header>
 
   <main>
 
-    <p>The <em>Music Movies API</em> is the complete server-side component of the <em>My Music Movies</em> web application providing users with access to information about different music movies including details about genres, actors, directors, artists, and more. Users will be able to sign up, update their personal information, and create a list of their favorite music movies.</p>
+    <p>The <em>Music Movies API</em> is the complete server-side component of the <em>myMusic Movies</em> web
+      application providing users with access to information about different music movies including details about
+      genres, actors, directors, artists, and more. Users will be able to sign up, update their personal information,
+      and create a list of their favorite music movies.</p>
 
-    <p>The <em>Music Movies API</em> consists of a RESTful API and non-relational database built using Node.js, Express, and MongoDB and will be accessed via commonly used HTTP methods like GET and POST. Similar methods (CRUD) are used to retrieve data from the database and store that data in a non-relational way. Whenever users are interacting with the <em>My Music Movies</em> web application, the <em>Music Movies API</em> including the server, business logic, and respective business layers, will process their requests and performing operations against the data in the database.
+    <p>The <em>Music Movies API</em> consists of a RESTful API and non-relational database built using Node.js, Express,
+      and MongoDB and will be accessed via commonly used HTTP methods like GET and POST. Similar methods (CRUD) are used
+      to retrieve data from the database and store that data in a non-relational way. Whenever users are interacting
+      with the <em>myMusicMovies</em> web application, the <em>Music Movies API</em> including the server, business
+      logic, and respective business layers, will process their requests and performing operations against the data in
+      the database.
     </p>
 
     <h2>RESTful CRUD Operations / Endpoints:</h2>
@@ -56,19 +64,27 @@
 
       <tr>
         <td>2</td>
-        <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
+        <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by
+          title to the user</td>
         <td>/movies/[Title]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a single movie, containing an ID, title, description, image URL, featured (boolean), genre (name, description), director (name, bio).<br>Example:<br>{<blockquote cite="#">"Genre": {
-            <blockquote cite="#">"Name":"Biography",<br>"Description": "A biographical film, or biopic, is a film that dramatizes the life of a non-fictional or historically-based person or people."</blockquote>},<br>"Director": {<blockquote
-              cite="#">"Name": "Anton
-              Corbijn",<br>"Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van Willenswaard. Anton Corbijn is a Dutch photographer, music video director, and film director. He is the creative director behind the
+        <td>A JSON object holding data about a single movie, containing an ID, title, description, image URL, featured
+          (boolean), genre (name, description), director (name, bio).<br>Example:<br>{<blockquote cite="#">"Genre": {
+            <blockquote cite="#">"Name":"Biography",<br>"Description": "A biographical film, or biopic, is a film that
+              dramatizes the life of a non-fictional or historically-based person or people."</blockquote>
+            },<br>"Director": {<blockquote cite="#">"Name": "Anton
+              Corbijn",<br>"Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van
+              Willenswaard. Anton Corbijn is a Dutch photographer, music video director, and film director. He is the
+              creative director behind the
               visual
-              output of Depeche Mode and U2, having handled the principal promotion and sleeve photography for both bands over three decades.",<br>"Birth": "1955"</blockquote>},<br>
+              output of Depeche Mode and U2, having handled the principal promotion and sleeve photography for both
+              bands over three decades.",<br>"Birth": "1955"</blockquote>},<br>
 
             "Actors": [],<br>"_id": "61e34033816003b43cf7b40a",<br>"Title":
-            "Control",<br>"Description": "Control is a 2007 British biographical film about the life of Ian Curtis, singer of the late-1970s English post-punk band Joy Division. It is the first feature film directed by Anton Corbijn, who had worked
+            "Control",<br>"Description": "Control is a 2007 British biographical film about the life of Ian Curtis,
+            singer of the late-1970s English post-punk band Joy Division. It is the first feature film directed by Anton
+            Corbijn, who had worked
             with Joy Division as a photographer.",<br>"ImagePath": "control.png",<br>"Featured": false
           </blockquote>}
         </td>
@@ -80,8 +96,12 @@
         <td><a href="http://localhost:8080/movies/genres/Comedy">/movies/genres/[Genre Name]</a></td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a specific genre.<br>Example:<br>{<blockquote cite="#">"Name": "Comedy",<br>"Description": "Comedy films are funny and entertaining. The films in this genre center around a comedic premise—usually putting
-            someone in a challenging, amusing, or humorous situation they’re not prepared to handle. Good comedy movies are less about making constant jokes, and more about presenting a universally relatable, real-life story with complex characters
+        <td>A JSON object holding data about a specific genre.<br>Example:<br>{<blockquote cite="#">"Name":
+            "Comedy",<br>"Description": "Comedy films are funny and entertaining. The films in this genre center around
+            a comedic premise—usually putting
+            someone in a challenging, amusing, or humorous situation they’re not prepared to handle. Good comedy movies
+            are less about making constant jokes, and more about presenting a universally relatable, real-life story
+            with complex characters
             who learn an important lesson.(Masterclass.com)"</blockquote>}<br></td>
       </tr>
 
@@ -91,9 +111,13 @@
         <td><a href="http://localhost:8080/movies/directors/Anton%20Corbijn">/movies/directors/[Director Name]</a></td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a director.<br>Example:<br>{<blockquote cite="#">"Name": "Anton Corbijn",<br>
-            "Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van Willenswaard. Anton Corbijn is a Dutch photographer, music video director, and film director. He is the creative director behind the visual output of
-            Depeche Mode and U2, having handled the principal promotion and sleeve photography for both bands over three decades.",<br>
+        <td>A JSON object holding data about a director.<br>Example:<br>{<blockquote cite="#">"Name": "Anton
+            Corbijn",<br>
+            "Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van Willenswaard. Anton
+            Corbijn is a Dutch photographer, music video director, and film director. He is the creative director behind
+            the visual output of
+            Depeche Mode and U2, having handled the principal promotion and sleeve photography for both bands over three
+            decades.",<br>
             "Birth": "1955"
           </blockquote>}<br></td>
       </tr>
@@ -103,8 +127,11 @@
         <td>Allow new users to register</td>
         <td>/register</td>
         <td>POST</td>
-        <td>A JSON object holding data about the user to add, structured like:<br>{<blockquote cite="#">"Username" : "justincase",<br>"Password" : "justincase-pw123",<br>"Email" : "justin@case.com"</blockquote>}</td>
-        <td>A JSON object holding data about a successfully created user.<br>Example:<br>{<blockquote cite="#">"Username": "justincase",<br>"Password": "justincase-pw123",<br>"Email": "justin@case.com",<br>"FavoriteMovies": [],<br>"_id":
+        <td>A JSON object holding data about the user to add, structured like:<br>{<blockquote cite="#">"Username" :
+            "justincase",<br>"Password" : "justincase-pw123",<br>"Email" : "justin@case.com"</blockquote>}</td>
+        <td>A JSON object holding data about a successfully created user.<br>Example:<br>{<blockquote cite="#">
+            "Username": "justincase",<br>"Password": "justincase-pw123",<br>"Email":
+            "justin@case.com",<br>"FavoriteMovies": [],<br>"_id":
             "61e708dd5279a4481cb3578e",<br>"__v": 0</blockquote>}</td>
       </tr>
 
@@ -113,7 +140,9 @@
         <td>Allow users to update their user info (username, password, email, date of birth)</td>
         <td>/users/[Username]</td>
         <td>PATCH/PUT</td>
-        <td>A JSON object holding data about the user info to update:<br>{<blockquote cite="#">"Username" : "jimpandzko",<br>"Password" : "jp-pw-123",<br>"Email" : "jim@pandzko.de",<br>"Birthday" : "1986-01-22"</blockquote>}</td>
+        <td>A JSON object holding data about the user info to update:<br>{<blockquote cite="#">"Username" :
+            "jimpandzko",<br>"Password" : "jp-pw-123",<br>"Email" : "jim@pandzko.de",<br>"Birthday" : "1986-01-22"
+          </blockquote>}</td>
         <td>A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id": "61e42bc6816003b43cf7b413",<br>
             "Username": "jimpandzko",<br>
             "Password": "jp-pw-123",<br>
@@ -130,8 +159,11 @@
         <td>/users/[Username]/movies/[MovieID]</td>
         <td>POST</td>
         <td>None</td>
-        <td>A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id": "61e6da92331a989a513439d9",<br>"Username": "hanspeter",<br>"Password": "hp-pw-122",<br>"Email": "hans@peter.de",<br>"FavoriteMovies": [<blockquote cite="#">
-              "61e354f9816003b43cf7b411",<br>"61e34ac3816003b43cf7b410"</blockquote>],<br>"__v": 0,<br>"Birthday": "1986-01-22T00:00:00.000Z"</blockquote>}</td>
+        <td>A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id":
+            "61e6da92331a989a513439d9",<br>"Username": "hanspeter",<br>"Password": "hp-pw-122",<br>"Email":
+            "hans@peter.de",<br>"FavoriteMovies": [<blockquote cite="#">
+              "61e354f9816003b43cf7b411",<br>"61e34ac3816003b43cf7b410"</blockquote>],<br>"__v": 0,<br>"Birthday":
+            "1986-01-22T00:00:00.000Z"</blockquote>}</td>
       </tr>
 
       <tr>
@@ -140,8 +172,11 @@
         <td>/users/[Username]/movies/[MovieID]</td>
         <td>DELETE</td>
         <td>None</td>
-        <td>A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id": "61e6da92331a989a513439d9",<br>"Username": "hanspeter",<br>"Password": "hp-pw-122",<br>"Email": "hans@peter.de",<br>"FavoriteMovies": [<blockquote cite="#">
-              "61e354f9816003b43cf7b411"</blockquote>],<br>"__v": 0,<br>"Birthday": "1986-01-22T00:00:00.000Z"</blockquote>}</td>
+        <td>A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id":
+            "61e6da92331a989a513439d9",<br>"Username": "hanspeter",<br>"Password": "hp-pw-122",<br>"Email":
+            "hans@peter.de",<br>"FavoriteMovies": [<blockquote cite="#">
+              "61e354f9816003b43cf7b411"</blockquote>],<br>"__v": 0,<br>"Birthday": "1986-01-22T00:00:00.000Z"
+          </blockquote>}</td>
       </tr>
 
       <tr>
@@ -161,7 +196,8 @@
 
   <footer>
 
-    <a href="https://github.com/jkraemr/music-movies-api" target="_blank">Visit GitHub repo (jkraemr/music-movies-api).</a>
+    <a href="https://github.com/jkraemr/music-movies-api" target="_blank">Visit GitHub repo
+      (jkraemr/music-movies-api).</a>
 
   </footer>
 
