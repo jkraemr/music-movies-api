@@ -57,8 +57,10 @@ require('./passport');
 
 // MOVIES
 
-// Return a list of all movies / READ without authentication (temporarily for React dev purposes), see auth version below which shall be restored once users are given the ability to authenticate themselves with a login form when using the client application
-app.get('/movies', (req, res) => {
+// Return a list of all movies / READ
+app.get('/movies', passport.authenticate('jwt', {
+  session: false
+}), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.json(movies);
@@ -68,20 +70,6 @@ app.get('/movies', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
-
-// // Return a list of all movies / READ
-// app.get('/movies', passport.authenticate('jwt', {
-//   session: false
-// }), (req, res) => {
-//   Movies.find()
-//     .then((movies) => {
-//       res.json(movies);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.status(500).send('Error: ' + err);
-//     });
-// });
 
 // Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title / READ
 app.get('/movies/:Title', passport.authenticate('jwt', {
