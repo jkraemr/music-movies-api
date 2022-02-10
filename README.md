@@ -1,8 +1,8 @@
 # Music Movies API
 
-The **Music Movies API** is the complete server-side component of the **My Music Movies** web application providing users with access to information about different music movies including details about genres, actors, directors, artists, and more. Users will be able to sign up, update their personal information, and create a list of their favorite music movies.
+The **Music Movies API** is the complete server-side component of the **myMusicMovies** web application providing users with access to information about different music movies including details about genres, actors, directors, artists, and more. Users will be able to sign up, update their personal information, and create a list of their favorite music movies.
 
-The **Music Movies API** consists of a RESTful API and non-relational database built using Node.js, Express, and MongoDB and will be accessed via commonly used HTTP methods like GET and POST. Similar methods (CRUD) are used to retrieve data from the database and store that data in a non-relational way. Whenever users are interacting with the **My Music Movies** web application, the **Music Movies API** including the server, business logic, and respective business layers, will process their requests and performing operations against the data in the database.
+The **Music Movies API** consists of a RESTful API and non-relational database built using Node.js, Express, and MongoDB and will be accessed via commonly used HTTP methods like GET and POST. Similar methods (CRUD) are used to retrieve data from the database and store that data in a non-relational way. Whenever users are interacting with the **MyMusicMovies** web application, the **Music Movies API** including the server, business logic, and respective business layers, will process their requests and performing operations against the data in the database.
 
 ## Key Features
 
@@ -21,7 +21,7 @@ The **Music Movies API** consists of a RESTful API and non-relational database b
 * Movie enthusiasts who enjoy gaining further insights into a variety different music movies
 
 ## Built with
-The **My Music Movies** web application is built using the MERN stack:
+The **MyMusicMovies** web application is built using the MERN stack:
 * MongoDB
 * Express.js
 * React.js
