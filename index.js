@@ -58,9 +58,8 @@ require('./passport');
 // MOVIES
 
 // Return a list of all movies / READ
-app.get('/movies', passport.authenticate('jwt', {
-  session: false
-}), (req, res) => {
+// Remove passport temporarily to give client app access
+app.get('/movies', (req, res) => {
   Movies.find()
     .then((movies) => {
       res.json(movies);
@@ -70,6 +69,21 @@ app.get('/movies', passport.authenticate('jwt', {
       res.status(500).send('Error: ' + err);
     });
 });
+
+// Temp deactivated 
+// // Return a list of all movies / READ
+// app.get('/movies', passport.authenticate('jwt', {
+//   session: false
+// }), (req, res) => {
+//   Movies.find()
+//     .then((movies) => {
+//       res.json(movies);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.status(500).send('Error: ' + err);
+//     });
+// });
 
 // Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title / READ
 app.get('/movies/:Title', passport.authenticate('jwt', {
