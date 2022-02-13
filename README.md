@@ -17,7 +17,7 @@ The **Music Movies API** consists of a RESTful API and non-relational database b
 * Allow existing users to deregister
 
 ## Who is the Music Movies API for?
-* Frontend developers who will work on the client-side component of the **My Music Movies** web application using REACT
+* Frontend developers who will work on the client-side component of the **MyMusicMovies** web application using REACT
 * Movie enthusiasts who enjoy gaining further insights into a variety different music movies
 
 ## Built with
