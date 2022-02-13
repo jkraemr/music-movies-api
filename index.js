@@ -30,22 +30,22 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// Specify that the app uses CORS (Cross-Origin Resource Sharing)
-const cors = require('cors');
+// // Specify that the app uses CORS (Cross-Origin Resource Sharing)
+// const cors = require('cors');
 
-// By default, CORS will set the application to allow requests from all origins; however, if only certain origins shall be given access, "app.use(cors());" needs to be replaced with the following:
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'http://testsite.com', 'https://www.udiscover-music.de/'];
+// // By default, CORS will set the application to allow requests from all origins; however, if only certain origins shall be given access, "app.use(cors());" needs to be replaced with the following:
+// let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'http://testsite.com', 'https://www.udiscover-music.de/'];
 
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn’t found on the list of allowed origins
-      let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
-      return callback(new Error(message), false);
-    }
-    return callback(null, true);
-  }
-}));
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (!origin) return callback(null, true);
+//     if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn’t found on the list of allowed origins
+//       let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+//       return callback(new Error(message), false);
+//     }
+//     return callback(null, true);
+//   }
+// }));
 
 // Import auth.js file to ensure the application can make use of it, and that the “auth.js” file can use Express.
 let auth = require('./auth')(app); // (app) argument ensures that Express is available in “auth.js” file and auth.js can use Express
