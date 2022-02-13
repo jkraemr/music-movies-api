@@ -32,8 +32,6 @@ app.use(bodyParser.urlencoded({
 
 // Specify that the app uses CORS (Cross-Origin Resource Sharing)
 const cors = require('cors');
-
-const cors = require('cors');
 app.use(cors());
 
 // By default, CORS will set the application to allow requests from all origins; however, if only certain origins shall be given access, "app.use(cors());" needs to be replaced with the following:
