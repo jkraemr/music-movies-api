@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({
 const cors = require('cors');
 
 // By default, CORS will set the application to allow requests from all origins; however, if only certain origins shall be given access, "app.use(cors());" needs to be replaced with the following:
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'http://testsite.com', 'https://www.udiscover-music.de/wp-content/uploads/2018/10/steven-wilson-header.jpg'];
+// let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'http://testsite.com', 'https://www.udiscover-music.de/wp-content/uploads/2018/10/steven-wilson-header.jpg'];
 
 app.use(cors({
   origin: (origin, callback) => {
