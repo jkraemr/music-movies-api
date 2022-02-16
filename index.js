@@ -335,9 +335,11 @@ app.get('/', (req, res) => {
   res.sendFile('index.html', { root: __dirname });
 });
 
-app.get('/documentation', (req, res) => {
-  res.sendFile('public/documentation.html', { root: __dirname });
-});
+// app.get('/documentation', (req, res) => {
+//   res.sendFile('public/documentation.html', { root: __dirname });
+// });
+
+app.use(express.static('public'))
 
 // app.listen(8080, () => {
 //   console.log('jkraemr\'s music-movie-app is listening on port 8080.');
