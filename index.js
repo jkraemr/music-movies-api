@@ -176,6 +176,20 @@ app.post('/register',
       });
   });
 
+// Get user by username
+app.get('/users/:username', passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Users.findOne({ Username: req.params.username })
+      .then((user) => {
+        res.json(user);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
+
 // Allow users to update their user info (username) UPDATE
 // Version 1 with PATCH method and ES6’s .then and .catch functions
 app.patch('/users/:Username', passport.authenticate('jwt', {
