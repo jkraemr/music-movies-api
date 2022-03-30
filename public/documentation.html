@@ -66,7 +66,7 @@
         <td>2</td>
         <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by
           title to the user</td>
-        <td>/movies/[Title]</td>
+        <td>/movies/:Title</td>
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding data about a single movie, containing an ID, title, description, image URL, featured
@@ -93,7 +93,7 @@
       <tr style="background-color:none;">
         <td>3</td>
         <td>Return data about a genre (description) by name/title (e.g., “Comedy”)</td>
-        <td><a href="http://localhost:8080/movies/genres/Comedy">/movies/genres/[Genre Name]</a></td>
+        <td><a href="http://localhost:8080/movies/genres/Comedy">/genres/:Name</a></td>
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding data about a specific genre.<br>Example:<br>{<blockquote cite="#">"Name":
@@ -108,7 +108,7 @@
       <tr>
         <td>4</td>
         <td>Return data about a director (bio, birth year, death year) by name</td>
-        <td><a href="http://localhost:8080/movies/directors/Anton%20Corbijn">/movies/directors/[Director Name]</a></td>
+        <td><a href="http://localhost:8080/movies/directors/Anton%20Corbijn">/directors/:Name</a></td>
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding data about a director.<br>Example:<br>{<blockquote cite="#">"Name": "Anton
