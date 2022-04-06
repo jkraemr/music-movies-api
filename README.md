@@ -48,6 +48,7 @@ API hosted on **Heroku**:
 
 ## Documentation
 Full documentation:
+See JSDoc documentation or refer to: 
 [mymusicmovies.herokuapp.com/documentation](https://mymusicmovies.herokuapp.com/documentation.html)
 
 ## Acknowledgements
