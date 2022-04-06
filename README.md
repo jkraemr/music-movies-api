@@ -47,7 +47,7 @@ API hosted on **Heroku**:
 [mymusicmovies.herokuapp.com](https://mymusicmovies.herokuapp.com/)
 
 ## Documentation
-See JSDoc documentation or refer to: 
+See JSDoc or refer to: 
 [mymusicmovies.herokuapp.com/documentation](https://mymusicmovies.herokuapp.com/documentation.html)
 
 ## Acknowledgements
