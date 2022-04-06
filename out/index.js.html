@@ -1,4 +1,32 @@
-const express = require('express'),
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const express = require('express'),
   app = express(),
   morgan = require('morgan'),
   {
@@ -59,20 +87,20 @@ require('./passport');
 // MOVIES
 
 /**
- * @description Endpoint to return a list of ALL movies to the user (READ).<br>
+ * @description Endpoint to return a list of ALL movies to the user (READ).&lt;br>
  * Requires authorization JWT.
  * @method GETAllMovies
  * @param {string} endpoint /movies
- * @param {req.headers} object Headers object containing the JWT formatted as below:<br>
- * { "Authorization" : "Bearer <jwt>"}
- * @returns {object} A JSON object holding data about all movies. <br><br>Example:<br>
- *   Genre: { Name: <string>, Description: <string> },<br>
- *   Director: { Name: <string>, Bio: <string>, Birth: <string>, Death: <string> },
- *   _id: <string>,
- *   Title: <string>,
- *   Description: <string>,
- *   Featured: <boolean>,
- *   ImagePath: <string> (Example: "pink-floyd-live-at-pmpeii.jpg"),
+ * @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+ * { "Authorization" : "Bearer &lt;jwt>"}
+ * @returns {object} A JSON object holding data about all movies. &lt;br>&lt;br>Example:&lt;br>
+ *   Genre: { Name: &lt;string>, Description: &lt;string> },&lt;br>
+ *   Director: { Name: &lt;string>, Bio: &lt;string>, Birth: &lt;string>, Death: &lt;string> },
+ *   _id: &lt;string>,
+ *   Title: &lt;string>,
+ *   Description: &lt;string>,
+ *   Featured: &lt;boolean>,
+ *   ImagePath: &lt;string> (Example: "pink-floyd-live-at-pmpeii.jpg"),
  * ]}
  */
 app.get('/movies', passport.authenticate('jwt', {
@@ -89,30 +117,30 @@ app.get('/movies', passport.authenticate('jwt', {
 });
 
 /**
- * @description Endpoint to return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user (READ).<br>
+ * @description Endpoint to return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user (READ).&lt;br>
  * Requires authorization JWT.
  * @method GETOneMovie
  * @param {string} endpoint /movies/:Title
- * @param {req.headers} object Headers object containing the JWT formatted as below:<br>
- * { "Authorization" : "Bearer <jwt>"}
+ * @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+ * { "Authorization" : "Bearer &lt;jwt>"}
  * @returns {object} A JSON object holding data about a single movie, containing an ID, title, description, image URL, featured
-          (boolean), genre (name, description), director (name, bio).<br><br>Example:<br>{<blockquote cite="#">"Genre": {
-            <blockquote cite="#">"Name":"Biography",<br>"Description": "A biographical film, or biopic, is a film that
-              dramatizes the life of a non-fictional or historically-based person or people."</blockquote>
-            },<br>"Director": {<blockquote cite="#">"Name": "Anton
-              Corbijn",<br>"Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van
+          (boolean), genre (name, description), director (name, bio).&lt;br>&lt;br>Example:&lt;br>{&lt;blockquote cite="#">"Genre": {
+            &lt;blockquote cite="#">"Name":"Biography",&lt;br>"Description": "A biographical film, or biopic, is a film that
+              dramatizes the life of a non-fictional or historically-based person or people."&lt;/blockquote>
+            },&lt;br>"Director": {&lt;blockquote cite="#">"Name": "Anton
+              Corbijn",&lt;br>"Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van
               Willenswaard. Anton Corbijn is a Dutch photographer, music video director, and film director. He is the
               creative director behind the
               visual
               output of Depeche Mode and U2, having handled the principal promotion and sleeve photography for both
-              bands over three decades.",<br>"Birth": "1955"</blockquote>},<br>
+              bands over three decades.",&lt;br>"Birth": "1955"&lt;/blockquote>},&lt;br>
 
-            "Actors": [],<br>"_id": "61e34033816003b43cf7b40a",<br>"Title":
-            "Control",<br>"Description": "Control is a 2007 British biographical film about the life of Ian Curtis,
+            "Actors": [],&lt;br>"_id": "61e34033816003b43cf7b40a",&lt;br>"Title":
+            "Control",&lt;br>"Description": "Control is a 2007 British biographical film about the life of Ian Curtis,
             singer of the late-1970s English post-punk band Joy Division. It is the first feature film directed by Anton
             Corbijn, who had worked
-            with Joy Division as a photographer.",<br>"ImagePath": "control.png",<br>"Featured": false
-          </blockquote>}
+            with Joy Division as a photographer.",&lt;br>"ImagePath": "control.png",&lt;br>"Featured": false
+          &lt;/blockquote>}
  */
 app.get('/movies/:Title', passport.authenticate('jwt', {
   session: false
@@ -130,19 +158,19 @@ app.get('/movies/:Title', passport.authenticate('jwt', {
 });
 
 /**
- * @description Endpoint to return data about a genre (description) by name/title (e.g., “Concert”) (READ).<br>
+ * @description Endpoint to return data about a genre (description) by name/title (e.g., “Concert”) (READ).&lt;br>
  * Requires authorization JWT.
  * @method GETOneGenre
  * @param {string} endpoint /movies/genres/:genreName
- * @param {req.headers} object Headers object containing the JWT formatted as below:<br>
- * { "Authorization" : "Bearer <jwt>"}
- * @returns {object} A JSON object holding data about a specific genre.<br><br>Example:<br>{<blockquote cite="#">"Name":
-            "Comedy",<br>"Description": "Comedy films are funny and entertaining. The films in this genre center around
+ * @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+ * { "Authorization" : "Bearer &lt;jwt>"}
+ * @returns {object} A JSON object holding data about a specific genre.&lt;br>&lt;br>Example:&lt;br>{&lt;blockquote cite="#">"Name":
+            "Comedy",&lt;br>"Description": "Comedy films are funny and entertaining. The films in this genre center around
             a comedic premise—usually putting
             someone in a challenging, amusing, or humorous situation they’re not prepared to handle. Good comedy movies
             are less about making constant jokes, and more about presenting a universally relatable, real-life story
             with complex characters
-            who learn an important lesson.(Masterclass.com)"</blockquote>}<br>
+            who learn an important lesson.(Masterclass.com)"&lt;/blockquote>}&lt;br>
  */
 app.get('/movies/genres/:genreName', passport.authenticate('jwt', {
   session: false
@@ -160,21 +188,21 @@ app.get('/movies/genres/:genreName', passport.authenticate('jwt', {
 });
 
 /**
- * @description Endpoint to return data about a director (bio, birth year) by name (READ).<br>
+ * @description Endpoint to return data about a director (bio, birth year) by name (READ).&lt;br>
  * Requires authorization JWT.
  * @method GETOneDirector
  * @param {string} endpoint /movies/directors/:directorName
- * @param {req.headers} object Headers object containing the JWT formatted as below:<br>
- * { "Authorization" : "Bearer <jwt>"}
- * @returns {object} A JSON object holding data about a director.<br><br>Example:<br>{<blockquote cite="#">"Name": "Anton
-            Corbijn",<br>
+ * @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+ * { "Authorization" : "Bearer &lt;jwt>"}
+ * @returns {object} A JSON object holding data about a director.&lt;br>&lt;br>Example:&lt;br>{&lt;blockquote cite="#">"Name": "Anton
+            Corbijn",&lt;br>
             "Bio": "Born in 1955 in Stijen, the Netherlands as Anton Johannes Gerrit Corbijn van Willenswaard. Anton
             Corbijn is a Dutch photographer, music video director, and film director. He is the creative director behind
             the visual output of
             Depeche Mode and U2, having handled the principal promotion and sleeve photography for both bands over three
-            decades.",<br>
+            decades.",&lt;br>
             "Birth": "1955"
-          </blockquote>}<br>
+          &lt;/blockquote>}&lt;br>
  */
 app.get('/movies/directors/:directorName', passport.authenticate('jwt', {
   session: false
@@ -195,23 +223,23 @@ app.get('/movies/directors/:directorName', passport.authenticate('jwt', {
 // USERS
 
 /**
- * @description Endpoint to allow new users to register (CREATE).<br>
+ * @description Endpoint to allow new users to register (CREATE).&lt;br>
  * Does not require authorization JWT.
  * @method POSTRegisterUser
  * @param {string} endpoint /register
- * @param {req.body} object The HTTP body must be a JSON object formatted as below (Birthday is optional):<br>
- * {<br>
- * "Username" : "test-user-030",<br>
- * "Password" : "test-pw-030",<br>
- * "Email" : "test@user-030.com",<br>
- * "Birthday" : "1968-03-02"<br>
+ * @param {req.body} object The HTTP body must be a JSON object formatted as below (Birthday is optional):&lt;br>
+ * {&lt;br>
+ * "Username" : "test-user-030",&lt;br>
+ * "Password" : "test-pw-030",&lt;br>
+ * "Email" : "test@user-030.com",&lt;br>
+ * "Birthday" : "1968-03-02"&lt;br>
  * }
- * @returns {object} A JSON object containing data for the new user. <br><br>Example:<br>
- * { _id: <string>,  
- *   Username: <string>,  
- *   Password: <string> (hashed),  
- *   Email: <string>, 
- *   Birthday: <string>  
+ * @returns {object} A JSON object containing data for the new user. &lt;br>&lt;br>Example:&lt;br>
+ * { _id: &lt;string>,  
+ *   Username: &lt;string>,  
+ *   Password: &lt;string> (hashed),  
+ *   Email: &lt;string>, 
+ *   Birthday: &lt;string>  
  *   FavoriteMovies: []  
  * }
  */
@@ -270,19 +298,19 @@ app.post('/register',
   });
 
 /**
-* @description Endpoint to get data for a single user.<br>
+* @description Endpoint to get data for a single user.&lt;br>
 * Requires authorization JWT.
 * @method GETOneUser
 * @param {string} endpoint /users/:username
-* @param {req.headers} object Headers object containing the JWT formatted as below:<br>
-* { "Authorization" : "Bearer <jwt>"}
-* @returns {object} A JSON object containing data for the user.<br><br>Example:<br>
-* { _id: <string>,   
-*   Username: <string>,   
-*   Password: <string> (hashed),   
-*   Email: <string>,  
-*   Birthday: <string>  
-*   FavoriteMovies: [<string>]  
+* @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+* { "Authorization" : "Bearer &lt;jwt>"}
+* @returns {object} A JSON object containing data for the user.&lt;br>&lt;br>Example:&lt;br>
+* { _id: &lt;string>,   
+*   Username: &lt;string>,   
+*   Password: &lt;string> (hashed),   
+*   Email: &lt;string>,  
+*   Birthday: &lt;string>  
+*   FavoriteMovies: [&lt;string>]  
 * }
 */
 app.get('/users/:username', passport.authenticate("jwt", { session: false }),
@@ -301,26 +329,26 @@ app.get('/users/:username', passport.authenticate("jwt", { session: false }),
 
 /**
  * Version 1 with PATCH method and ES6’s .then and .catch functions
- * @description Endpoint to allow users to update their user info (UPDATE).<br>
+ * @description Endpoint to allow users to update their user info (UPDATE).&lt;br>
  * Requires authorization JWT.
  * @method PATCHUpdateUser
  * @param {string} endpoint /users/:Username
- * @param {req.headers} object Headers object containing the JWT formatted as below:<br>
- * { "Authorization" : "Bearer <jwt>"}
- * @param {req.body} object The HTTP body must be a JSON object formatted as below (Email, Birthday optional):<br>
- * {<br>
- * "Username": "johndoe",<br>
- * "Password": "aStrongPasWwOOrd",<br>
- * "Email" : "johndo@gmail.com",<br>
- * "Birthday" : "1995-08-24"<br>
+ * @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+ * { "Authorization" : "Bearer &lt;jwt>"}
+ * @param {req.body} object The HTTP body must be a JSON object formatted as below (Email, Birthday optional):&lt;br>
+ * {&lt;br>
+ * "Username": "johndoe",&lt;br>
+ * "Password": "aStrongPasWwOOrd",&lt;br>
+ * "Email" : "johndo@gmail.com",&lt;br>
+ * "Birthday" : "1995-08-24"&lt;br>
  * }
- * @returns {object} A JSON object containing updated user data.<br><br>Example:<br>
- * { _id: <string>,   
- *   Username: <string>,   
- *   Password: <string> (hashed),   
- *   Email: <string>,  
- *   Birthday: <string>  
- *   FavoriteMovies: [<string>]  
+ * @returns {object} A JSON object containing updated user data.&lt;br>&lt;br>Example:&lt;br>
+ * { _id: &lt;string>,   
+ *   Username: &lt;string>,   
+ *   Password: &lt;string> (hashed),   
+ *   Email: &lt;string>,  
+ *   Birthday: &lt;string>  
+ *   FavoriteMovies: [&lt;string>]  
  * }
  */
 app.patch('/users/:Username', passport.authenticate('jwt', {
@@ -357,7 +385,7 @@ app.patch('/users/:Username', passport.authenticate('jwt', {
       })
   });
 
-// // Allow users to update their user info (username) UPDATE<br>
+// // Allow users to update their user info (username) UPDATE&lt;br>
 // // Alternative Version 2 with PUT method and combining the callback and the error-handling into a single callback (opposed to the PATCH request above)
 // app.put('/users/:Username', passport.authenticate('jwt', {
 //     session: false
@@ -394,18 +422,18 @@ app.patch('/users/:Username', passport.authenticate('jwt', {
 //   });
 
 /**
- * @description Endpoint to allow users to add a movie to their list of favorites (CREATE).<br>
+ * @description Endpoint to allow users to add a movie to their list of favorites (CREATE).&lt;br>
  * Requires authorization JWT.
  * @method POSTAddFavoriteMovie
  * @param {string} endpoint /users/:Username/movies/:MovieID
- * @param {req.headers} object Headers object containing the JWT formatted as below:<br>
- * { "Authorization" : "Bearer <jwt>"}
- * @returns {object} A JSON object containing updated user data.<br><br>Example:<br>
- * A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id":
-            "61e6da92331a989a513439d9",<br>"Username": "hanspeter",<br>"Password": "hp-pw-122",<br>"Email":
-            "hans@peter.de",<br>"FavoriteMovies": [<blockquote cite="#">
-              "61e354f9816003b43cf7b411",<br>"61e34ac3816003b43cf7b410"</blockquote>],<br>"__v": 0,<br>"Birthday":
-            "1986-01-22T00:00:00.000Z"</blockquote>}
+ * @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+ * { "Authorization" : "Bearer &lt;jwt>"}
+ * @returns {object} A JSON object containing updated user data.&lt;br>&lt;br>Example:&lt;br>
+ * A JSON object holding the updated user info:&lt;br>{&lt;blockquote cite="#">"_id":
+            "61e6da92331a989a513439d9",&lt;br>"Username": "hanspeter",&lt;br>"Password": "hp-pw-122",&lt;br>"Email":
+            "hans@peter.de",&lt;br>"FavoriteMovies": [&lt;blockquote cite="#">
+              "61e354f9816003b43cf7b411",&lt;br>"61e34ac3816003b43cf7b410"&lt;/blockquote>],&lt;br>"__v": 0,&lt;br>"Birthday":
+            "1986-01-22T00:00:00.000Z"&lt;/blockquote>}
  */
 app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {
   session: false
@@ -430,18 +458,18 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {
 });
 
 /**
- * @description Endpoint to allow users to remove a movie from their list of favorites (DELETE).<br>
+ * @description Endpoint to allow users to remove a movie from their list of favorites (DELETE).&lt;br>
  * Requires authorization JWT.
  * @method DELETEFavoriteMovie
  * @param {string} endpoint /users/:Username/movies/:MovieID
- * @param {req.headers} object Headers object containing the JWT formatted as below:<br>
- * { "Authorization" : "Bearer <jwt>"}
- * @returns {object} A JSON object containing updated user data. <br><br>Example:<br>
- * A JSON object holding the updated user info:<br>{<blockquote cite="#">"_id":
-            "61e6da92331a989a513439d9",<br>"Username": "hanspeter",<br>"Password": "hp-pw-122",<br>"Email":
-            "hans@peter.de",<br>"FavoriteMovies": [<blockquote cite="#">
-              "61e354f9816003b43cf7b411"</blockquote>],<br>"__v": 0,<br>"Birthday": "1986-01-22T00:00:00.000Z"
-          </blockquote>}
+ * @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+ * { "Authorization" : "Bearer &lt;jwt>"}
+ * @returns {object} A JSON object containing updated user data. &lt;br>&lt;br>Example:&lt;br>
+ * A JSON object holding the updated user info:&lt;br>{&lt;blockquote cite="#">"_id":
+            "61e6da92331a989a513439d9",&lt;br>"Username": "hanspeter",&lt;br>"Password": "hp-pw-122",&lt;br>"Email":
+            "hans@peter.de",&lt;br>"FavoriteMovies": [&lt;blockquote cite="#">
+              "61e354f9816003b43cf7b411"&lt;/blockquote>],&lt;br>"__v": 0,&lt;br>"Birthday": "1986-01-22T00:00:00.000Z"
+          &lt;/blockquote>}
  */
 app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {
   session: false
@@ -466,13 +494,13 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {
 });
 
 /**
- * @description Endpoint to allow existing users to deregister (showing only a text that a user email has been removed) (DELETE).<br>
+ * @description Endpoint to allow existing users to deregister (showing only a text that a user email has been removed) (DELETE).&lt;br>
  * Requires authorization JWT.
  * @method DELETEUserAccount
  * @param {string} endpoint - /users/:Username
- * @param {req.headers} object Headers object containing the JWT formatted as below:<br>
- * { "Authorization" : "Bearer <jwt>"}
- * @returns {string} A text message indicating whether the user has been successfully deleted.<br><br>Example:<br>" User XY was deleted."
+ * @param {req.headers} object Headers object containing the JWT formatted as below:&lt;br>
+ * { "Authorization" : "Bearer &lt;jwt>"}
+ * @returns {string} A text message indicating whether the user has been successfully deleted.&lt;br>&lt;br>Example:&lt;br>" User XY was deleted."
  */
 app.delete('/users/:Username', passport.authenticate('jwt', {
   session: false
@@ -514,3 +542,26 @@ const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0', () => {
   console.log('jkraemr\'s music-movie-app is listening on Port ' + port);
 });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DELETEFavoriteMovie">DELETEFavoriteMovie</a></li><li><a href="global.html#DELETEUserAccount">DELETEUserAccount</a></li><li><a href="global.html#generateJWTToken">generateJWTToken</a></li><li><a href="global.html#GETAllMovies">GETAllMovies</a></li><li><a href="global.html#GETOneDirector">GETOneDirector</a></li><li><a href="global.html#GETOneGenre">GETOneGenre</a></li><li><a href="global.html#GETOneMovie">GETOneMovie</a></li><li><a href="global.html#GETOneUser">GETOneUser</a></li><li><a href="global.html#hashPassword">hashPassword</a></li><li><a href="global.html#jwtStrategy">jwtStrategy</a></li><li><a href="global.html#loginStrategy">loginStrategy</a></li><li><a href="global.html#movieSchema">movieSchema</a></li><li><a href="global.html#PATCHUpdateUser">PATCHUpdateUser</a></li><li><a href="global.html#POSTAddFavoriteMovie">POSTAddFavoriteMovie</a></li><li><a href="global.html#POSTLoginUser">POSTLoginUser</a></li><li><a href="global.html#POSTRegisterUser">POSTRegisterUser</a></li><li><a href="global.html#userSchema">userSchema</a></li><li><a href="global.html#validatePassword">validatePassword</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Wed Apr 06 2022 23:23:02 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

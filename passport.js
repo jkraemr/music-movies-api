@@ -7,7 +7,13 @@ let Users = Models.User,
   JWTStrategy = passportJWT.Strategy,
   ExtractJWT = passportJWT.ExtractJwt;
 
-// Define passport strategy for basic HTTP authentication for login requests
+/**
+ * @description Define passport strategy for basic HTTP authentication for login requests. Middleware logic for checking login credentials for a user.<br>
+ * This is called when a user logs in.<br>
+ * First ensures the user exists, then checks that the password is correct.
+ * @method loginStrategy
+ * @returns {boolean} Returns true if credentials are valid, false otherwise
+ */
 passport.use(new LocalStrategy({
   usernameField: 'Username',
   passwordField: 'Password'
@@ -38,7 +44,14 @@ passport.use(new LocalStrategy({
   });
 }));
 
-// Define passport strategy to authenticate users based on the JWT submitted alongside their requests
+/**
+ * @description Define passport strategy to authenticate users based on the JWT submitted alongside their requests. Middleware logic for checking JWT for a user.<br>
+ * This is called when a accesses any protected endpoints.<br>
+ * Decodes the JWT and then checks to see if the encoded username exists on the server
+ * @method jwtStrategy
+ * @returns {boolean} Returns true if JWT is valid, false otherwise
+ */
+// 
 passport.use(new JWTStrategy({
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
   secretOrKey: 'jks_jwt_super_secret'
