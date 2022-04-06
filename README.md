@@ -1,6 +1,6 @@
 # Music Movies API
 
-RESTful API as complete server-side component for myMusicMovies web applications built using MERN and MEAN stacks.
+RESTful API as complete server-side component for the myMusicMovies web applications built using the MERN or MEAN stack.
 
 The **Music Movies API** is the complete server-side component of the **myMusicMovies** web application providing users with access to information about different music movies including details about genres, actors, directors, artists, and more. Users will be able to sign up, update their personal information, and create a list of their favorite music movies.
 
@@ -19,14 +19,14 @@ The **Music Movies API** consists of a RESTful API and non-relational database b
 * Allow existing users to deregister
 
 ## Who is the Music Movies API for?
-* Frontend developers who will work on the client-side component of the **MyMusicMovies** web application using REACT
+* Frontend developers who will work on the client-side component of the **MyMusicMovies** web application using React or Angular.
 * Movie enthusiasts who enjoy gaining further insights into a variety different music movies
 
 ## Built with
-The **MyMusicMovies** web application is built using the MERN stack:
+The **MyMusicMovies** web application is built using the MERN or MEAN stack:
 * MongoDB
 * Express.js
-* React.js
+* React.js (MERN) or Angular.js (MEAN)
 * Node.js
 
 ### Technical Specifications
