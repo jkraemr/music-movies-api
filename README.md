@@ -49,3 +49,8 @@ API hosted on **Heroku**:
 ## Documentation
 Full documentation:
 [mymusicmovies.herokuapp.com/documentation](https://mymusicmovies.herokuapp.com/documentation)
+
+## Acknowledgements
+
+This project was built as part of the mentored CareerFoundry Full-Stack Web Development Program / Achievement 2/6 / Server-Side Programming & Node js: https://careerfoundry.com/en/courses/become-a-web-developer/
+
